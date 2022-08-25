@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="todolist" method="post">
+    <h2>ToDoList</h2>
+    <input type="text" name="content"/>
+    <input type="submit" value="등록"/>
+</form>
+
+    <ul th:each = "element : ${list}">
+        <li th:text = "${element.content}"></li>
+        <li th:text = "${element.date}"></li>
+        <hr>
+
+        <form action="del" method="post">
+            <input type="submit" value="삭제">
+            <input type="hidden" name="number" th:value="${element.id}">
+        </form>
+    </ul>
+</body>
+</html>
